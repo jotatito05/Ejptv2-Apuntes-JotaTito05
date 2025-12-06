@@ -568,34 +568,7 @@ body {
     border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 148, 158, 0.5);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .mobile-menu-btn {
-        display: block;
-    }
-
-    .sidebar {
-        position: absolute;
-        height: 100%;
-        transform: translateX(-100%);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-
-    border: var(--glass-border);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-}
-
-.markdown-body th,
-.markdown-body td {
-    padding: 14px 18px;
-    border-bottom: 1px solid var(--border);
-    border-right: 1px solid var(--border);
+border-right: 1px solid var(--border);
 }
 
 .markdown-body th:last-child,
