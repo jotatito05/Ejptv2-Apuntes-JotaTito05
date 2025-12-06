@@ -3221,10 +3221,10 @@ function createAlert(type, content) {
     // Clean the [!TYPE] tag from content
     const cleanContent = content.replace(/\[!.*?\]/g, '').replace(/<p>/, '').replace(/<\/p>/, '');
     return `
-    < div class="markdown-alert markdown-alert-${type}" >
+    <div class="markdown-alert markdown-alert-${type}">
         <span class="markdown-alert-title">${type.toUpperCase()}</span>
-            ${cleanContent}
-        </div >
+        ${cleanContent}
+    </div>
     `;
 }
 
@@ -3284,25 +3284,204 @@ function createNavLink(title, path) {
     navTree.appendChild(link);
 }
 
+// -------------------------------------------------------------------------
+// UI ENHANCEMENTS (Mac-Style Code & Mobile Menu)
+// -------------------------------------------------------------------------
+
+function enhanceCodeBlocks() {
+    const codeBlocks = document.querySelectorAll('pre');
+    codeBlocks.forEach(pre => {
+        // Avoid double enhancement
+        if (pre.parentElement.classList.contains('code-wrapper')) return;
+
+        // Create wrapper
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-wrapper';
+
+        // Create header
+        const header = document.createElement('div');
+        header.className = 'code-header';
+
+        // Mac buttons
+        const buttons = document.createElement('div');
+        buttons.className = 'mac-buttons';
+        buttons.innerHTML = `
+            <div class="mac-btn red"></div>
+            <div class="mac-btn yellow"></div>
+            <div class="mac-btn green"></div>
+        `;
+
+        // Copy button
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'copy-btn';
+        copyBtn.textContent = 'Copy';
+        copyBtn.onclick = () => {
+            const code = pre.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => copyBtn.textContent = 'Copy', 2000);
+            });
+        };
+
+        header.appendChild(buttons);
+        header.appendChild(copyBtn);
+
+        // Assemble
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
+    });
+}
+
+// Mobile Menu Logic
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const sidebar = document.querySelector('.sidebar');
+
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        sidebar.classList.toggle('active');
+    });
+
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 &&
+            sidebar.classList.contains('active') &&
+            !sidebar.contains(e.target) &&
+            e.target !== mobileMenuBtn) {
+            sidebar.classList.remove('active');
+        }
+    });
+}
+
+// -------------------------------------------------------------------------
+// PHASE 2: SEARCH & TOC LOGIC
+// -------------------------------------------------------------------------
+
+// Search Logic
+const searchInput = document.getElementById('search-input');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        const navItems = document.querySelectorAll('.nav-item');
+        const groupTitles = document.querySelectorAll('.nav-group-title');
+
+        navItems.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            if (text.includes(query)) {
+                item.style.display = ''; // Reset to default
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Hide empty groups
+        groupTitles.forEach(title => {
+            let next = title.nextElementSibling;
+            let hasVisibleChildren = false;
+
+            while (next && !next.classList.contains('nav-group-title')) {
+                if (next.classList.contains('nav-item') && next.style.display !== 'none') {
+                    hasVisibleChildren = true;
+                    break;
+                }
+                next = next.nextElementSibling;
+            }
+
+            if (hasVisibleChildren) {
+                title.style.display = '';
+            } else {
+                title.style.display = 'none';
+            }
+        });
+    });
+}
+
+// Table of Contents Logic
+function generateTOC() {
+    const tocNav = document.getElementById('toc-nav');
+    if (!tocNav) return;
+
+    tocNav.innerHTML = '';
+    const headers = contentArea.querySelectorAll('h2, h3');
+
+    if (headers.length === 0) {
+        tocNav.innerHTML = '<p style="color: var(--text-secondary); font-size: 0.8rem;">No sections</p>';
+        return;
+    }
+
+    headers.forEach((header, index) => {
+        // Assign ID if missing
+        if (!header.id) {
+            header.id = `section-${index}`;
+        }
+
+        const link = document.createElement('a');
+        link.href = `#${header.id}`;
+        link.textContent = header.textContent;
+        link.className = header.tagName === 'H3' ? 'toc-h3' : 'toc-h2';
+
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            header.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        tocNav.appendChild(link);
+    });
+
+    // ScrollSpy for TOC
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                document.querySelectorAll('#toc-nav a').forEach(l => l.classList.remove('active'));
+                const activeLink = document.querySelector(`#toc-nav a[href="#${entry.target.id}"]`);
+                if (activeLink) activeLink.classList.add('active');
+            }
+        });
+    }, { rootMargin: '-100px 0px -60% 0px' });
+
+    headers.forEach(header => observer.observe(header));
+}
+
+// Reading Progress Bar
+const progressBar = document.getElementById('reading-progress');
+if (progressBar) {
+    contentArea.addEventListener('scroll', () => {
+        const scrollTop = contentArea.scrollTop;
+        const scrollHeight = contentArea.scrollHeight - contentArea.clientHeight;
+        const scrolled = (scrollTop / scrollHeight) * 100;
+        progressBar.style.width = `${scrolled}%`;
+    });
+}
+
 // Load Note Content
 function loadNote(filePath) {
     currentFilePath = filePath;
     try {
         contentArea.innerHTML = '<p>Cargando...</p>';
 
-        // Fetch from embedded data instead of fetch()
-        // Fetch from embedded data instead of fetch()
+        // Fetch from embedded data
         const markdown = notesData[currentLang][filePath];
 
         if (!markdown) {
-            throw new Error(`Nota no encontrada: ${filePath} `);
+            throw new Error(`Nota no encontrada: ${filePath}`);
         }
 
         // Render Markdown
         contentArea.innerHTML = marked.parse(markdown);
 
-        // Re-run highlight.js (sometimes needed)
+        // Re-run highlight.js
         hljs.highlightAll();
+
+        // Enhance UI (Mac-style blocks)
+        enhanceCodeBlocks();
+
+        // Generate TOC
+        generateTOC();
+
+        // Reset Scroll & Progress
+        contentArea.scrollTop = 0;
+        if (progressBar) progressBar.style.width = '0%';
 
         // Handle internal links
         document.querySelectorAll('.markdown-body a').forEach(link => {
@@ -3311,31 +3490,32 @@ function loadNote(filePath) {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
 
-                    // Resolve relative path
-                    // Current: 01-assessment/01-info/README.md
-                    // Link: ../README.md
-                    // Result: 01-assessment/README.md
+                    // Simple path resolution for this flat structure
+                    // We assume the href matches a key in notesData
+                    let targetPath = href;
 
-                    const currentDir = filePath.substring(0, filePath.lastIndexOf('/'));
-                    const resolvedPath = resolvePath(currentDir, href);
+                    // Handle "Back to Top" special case
+                    if (href === 'README.md') {
+                        targetPath = 'README.md';
+                    }
 
-                    console.log(`Navigating: ${filePath} + ${href} -> ${resolvedPath} `);
+                    console.log(`Navigating: ${filePath} -> ${targetPath}`);
 
-                    // Check if note exists before loading
-                    if (notesData[currentLang][resolvedPath]) {
-                        loadNote(resolvedPath);
+                    if (notesData[currentLang][targetPath]) {
+                        loadNote(targetPath);
 
                         // Update Sidebar Active State
                         document.querySelectorAll('.nav-link').forEach(l => {
                             l.classList.remove('active');
-                            if (l.dataset.path === resolvedPath) l.classList.add('active');
+                            if (l.dataset.path === targetPath) l.classList.add('active');
                         });
                     } else {
-                        alert(`Nota no encontrada: ${resolvedPath} `);
+                        // Try to find relative path if needed, but for now alert
+                        alert(`Nota no encontrada: ${targetPath}`);
                     }
                 });
             } else if (href && href.startsWith('#')) {
-                // Handle anchor links (e.g. #section-1)
+                // Handle anchor links
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const targetId = href.substring(1);
@@ -3353,13 +3533,13 @@ function loadNote(filePath) {
             const nextLinkContainer = document.createElement('div');
             nextLinkContainer.className = 'next-section-container';
             nextLinkContainer.innerHTML = `
-    <hr>
-    <a href="#" class="next-section-link" data-path="${nextNote.path}">
-        <span class="next-label">${uiTranslations[currentLang].next}:</span>
-        <span class="next-title">${nextNote.title}</span>
-        <span class="next-arrow">→</span>
-    </a>
-`;
+                <hr>
+                <a href="#" class="next-section-link" data-path="${nextNote.path}">
+                    <span class="next-label">${uiTranslations[currentLang].next}:</span>
+                    <span class="next-title">${nextNote.title}</span>
+                    <span class="next-arrow">→</span>
+                </a>
+            `;
 
             nextLinkContainer.querySelector('a').addEventListener('click', (e) => {
                 e.preventDefault();
@@ -3378,15 +3558,20 @@ function loadNote(filePath) {
             contentArea.appendChild(nextLinkContainer);
         }
 
+        // Mobile: Close sidebar on navigation
+        if (window.innerWidth <= 768) {
+            sidebar.classList.remove('active');
+        }
+
     } catch (error) {
         console.error('Error loading note:', error);
         contentArea.innerHTML = `
             <div class="markdown-alert markdown-alert-caution">
-        <span class="markdown-alert-title">ERROR</span>
+                <span class="markdown-alert-title">ERROR</span>
                 No se pudo cargar la nota.<br>
-    Detalles: ${error.message}
+                Detalles: ${error.message}
             </div>
-    `;
+        `;
     }
 }
 
@@ -3433,7 +3618,6 @@ document.getElementById('lang-select').addEventListener('change', (e) => {
     currentLang = e.target.value;
 
     // Refresh UI
-
     const welcomeTitle = document.querySelector('.welcome-screen h2');
     const welcomeP = document.querySelector('.welcome-screen p');
     if (welcomeTitle) {
